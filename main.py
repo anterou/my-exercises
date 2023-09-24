@@ -1,22 +1,17 @@
+import numpy
 import numpy as np
 
-# Ask the user for the number of elements
-num_elements = int(input("Enter the number of elements: "))
-# Calculate the matrix dimension as the nearest square root of the number of elements
-matrix_size = int(num_elements ** 0.5)
-# Determine the number of rows and columns automatically
-# If the matrix is square (fully populated), keep its dimension as matrix_size
-# Otherwise, the number of rows will be matrix_size, and the number of columns will be matrix_size + 1
-if matrix_size ** 2 == num_elements:
-    rows = cols = matrix_size
+num_element = int(input("Print a number of elements:"))
+check = int(num_element**0.5)
+if(check**2==num_element):
+    print(numpy.arange(num_element).reshape(check, check))
 else:
-    rows = matrix_size
-    cols = matrix_size + 1
-# Create a matrix using arange
-matrix = np.arange(rows * cols).reshape(rows, cols)
-print("Matrix:")
-print(matrix)
-
+    try:
+        rows = check
+        columns = rows + 1
+        print(numpy.arange(num_element).reshape(rows, columns))
+    except ValueError:
+        print("It is not possible to create such a matrix")
 
 
 
