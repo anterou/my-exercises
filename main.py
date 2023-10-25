@@ -1,9 +1,15 @@
-def most(arr):
-    if len(arr)==0:
-        return  0
-    if len(arr)==1:
-        return arr[0]
+def binary_search(list, item, low=0, high=None):
+    if high == None:
+        high = len(list)-1
+    if low>high:
+        return None
     else:
-        rest_max = most(arr[1:])
-        return arr[0] if arr[0]>rest_max else rest_max
-print(most([2,5,12]))
+        mid = (low+high)//2
+        if list[mid] == item:
+            return mid
+        if list[mid] > item:
+            return binary_search(list, item, low, mid-1)
+        else:
+            return binary_search(list, item, mid+1, high)
+print(binary_search([1,2,3,5,12], 3))
+
