@@ -1,17 +1,10 @@
-import numpy
-import numpy as np
-
-num_element = int(input("Print a number of elements:"))
-check = int(num_element**0.5)
-if(check**2==num_element):
-    print(numpy.arange(num_element).reshape(check, check))
-else:
-    try:
-        rows = check
-        columns = rows + 1
-        print(numpy.arange(num_element).reshape(rows, columns))
-    except ValueError:
-        print("It is not possible to create such a matrix")
-
-
-
+def sum(arr):
+    if len(arr)==0:
+        return 0
+    elif len(arr)==1:
+        return arr[0]
+    else:
+        a = arr[0]
+        arr.pop(0)
+        return a+sum(arr)
+print(sum([5, 4, 3, 2, 10]))
