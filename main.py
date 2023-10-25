@@ -1,8 +1,9 @@
-
-def length(arr):
-    count =0
+def most(arr):
     if len(arr)==0:
-        return 0
+        return  0
+    if len(arr)==1:
+        return arr[0]
     else:
-        return 1+length(arr[1:])
-print(length([5, 4, 3, 2, 10]))
+        rest_max = most(arr[1:])
+        return arr[0] if arr[0]>rest_max else rest_max
+print(most([2,5,12]))
