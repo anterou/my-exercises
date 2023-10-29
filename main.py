@@ -1,9 +1,9 @@
-def sum(arr):
-    if len(arr)==0:
-        return 0
-    elif len(arr)==1:
-        return arr[0]
+def quicksort(array):
+    if len(array)<2:
+        return array
     else:
-        return arr[0]+sum(arr[1:])
-a = sum([1,2,3])
-print(a)
+        pivot = array[0]
+        less = [i for i in array[1:] if i<pivot]
+        greater = [i for i in array[1:] if i>pivot]
+        return quicksort(less)+[pivot]+quicksort(greater)
+print(quicksort([3,3,2,1]))
